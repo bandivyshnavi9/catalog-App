@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+Delete Category
+{% endblock %}
+
+{% block content %}
+
+<h1> Are you sure you want to delete {{deletecategory.name}}? </h1>
+<form action="{{url_for('deleteCategory', Categories_name=Categories_name)}}" method="post">
+<div class="row">
+	<input type="submit" value="Delete">
+	<a href="{{url_for('HomePage')}}">Cancel</a>
+</div>
+</form>
+{% endblock %}

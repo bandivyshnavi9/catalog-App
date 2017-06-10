@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block button %}
+<li><a href="{{url_for('showLogin')}}">Login</a></li>
+{% endblock %}
+{% block sublist %}
+<div class="col-md-8" style ="border-left: 1px solid #ccc; padding-left: 50px">
+		<h2>Latest Items</h2>
+		{% for i in lastestItems %}
+		<h4><a href="{{url_for('DisplayItemDescription', Categories_name=i.cname, categoryitem_name=i.lname)}}">{{i.lname}} </a><small>({{i.cname}})</small></h4>
+		{% endfor %}
+	</div>
+{% endblock %}

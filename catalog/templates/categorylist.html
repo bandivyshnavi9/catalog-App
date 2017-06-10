@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+{% block button %}
+{% if public %}
+<li><a href="{{url_for('showLogin')}}">Login</a></li>
+{% else %}
+<li><a href="{{url_for('gdisconnect')}}">Logout</a></li>
+{% endif %}
+{% endblock %}
+{% block title %} {{categoryObject.name}} List{% endblock %}
+{% block sublist %}
+	<div class="col-md-8" style ="border-left: 1px solid #ccc; padding-left: 50px">
+		<h2>{{categoryObject.name}} Items <small>({{listcount.counts}})</small></h2>
+		{% if not public %}
+		<div class="row">
+			<a href="{{url_for('editCategoryName',Categories_name=categoryObject.name)}}">Edit</a>
+	<a href="{{url_for('deleteCategory',Categories_name=categoryObject.name)}}">Delete</a>
+		</div>
+		<br>
+		<a href="{{url_for('NewCategoryItem', Categories_name = categoryObject.name)}}">Add New Item</a>
+		{% endif %}
+		{% for i in itemsInCategory %}
+		<h4>
+			<a href="{{url_for('DisplayItemDescription', Categories_name=categoryObject.name, categoryitem_name=i.name)}}">{{i.name}}
+			</a>
+		</h4>
+		{% endfor %}
+	</div>
+</div>
+{% endblock %}

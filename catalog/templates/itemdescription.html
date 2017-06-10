@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block button %}
+{% if public %}
+<li><a href="{{url_for('showLogin')}}">Login</a></li>
+{% else %}
+<li><a href="{{url_for('gdisconnect')}}">Logout</a></li>
+{% endif %}
+{% endblock %}
+{% block title %} Item Description {% endblock %}
+{% block content %}
+<div class="row">
+    <h2>{{itemdescription.name}}</h2>
+</div>
+<div class="row">
+    <p>{{itemdescription.description}}</p>
+</div>
+{% if not public %}
+<div class="row">
+	<a href="{{url_for('EditCategoryItem',Categories_name=Categories_name,item_id=itemdescription.id)}}">Edit</a>
+	<a href="{{url_for('deleteCategoryItem',Categories_name=Categories_name,item_id=itemdescription.id)}}">Delete</a>
+</div>
+{% endif %}
+{% endblock %}

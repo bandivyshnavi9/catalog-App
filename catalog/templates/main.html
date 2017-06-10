@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block button %}
+{% endblock %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<div class="row">
+	<div class="col-md-4">
+		<h2>Categories</h2>
+		{% block addCategory %}
+		{% endblock %}
+		{% for i in listofCategories %}
+		<a href="{{url_for('DisplayCategoryItemslist',Categories_name=i.name)}}"><h4>{{i.name}}</h4></a>
+		{% endfor %}
+	</div>
+		{% block sublist %}
+		{% endblock %}
+</div>
+{% endblock %}

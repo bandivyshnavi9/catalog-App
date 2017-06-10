@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+ New Item to Catgeory
+ {% endblock %}
+
+{% block content %}
+<form action="{{url_for('NewCategoryItem', Categories_name=Categories_name)}}" method="post">
+<h3>New Item into {{Categories_name}}</h3>
+<div class="row">
+	<div class="col-md-4">
+		<label>Item Name</label>
+	</div>
+	<div class="col-md-8">
+		<input type="text" name="itemname" placeholder="Enter Item Name">
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-4">
+		<label>Item Description</label>
+	</div>
+	<div class="col-md-8">
+		<input type="text" name="itemdesc" placeholder="Enter Item Description">
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-4">
+		<input type="submit" name="Submit">
+	</div>
+	<div class="col-md-4">
+		<a href="{{url_for('DisplayCategoryItemslist', Categories_name=Categories_name)}}">Cancel</a>
+	</div>
+</div>
+</form>
+{% endblock %}
